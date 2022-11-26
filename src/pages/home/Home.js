@@ -1,15 +1,18 @@
 import useAuthContext from '../../hooks/useAuthContext';
+import { useCollection } from '../../hooks/useCollection'
+
 import styles from './Home.module.css'
-import Transaction from './Transaction';
+import TransactionForm from './TransactionForm';
 const Home = () => {
-    const { user } = useAuthContext()
+    const { user } = useAuthContext();
+    const { documents, error } = useCollection('transactions');
     return (
         <div className={styles.container}>
             <div className={styles.content}>
-                transaction list
+            {error && <p>{error}</p>}
             </div>
             <div className={styles.sidebar}>
-                <Transaction uid={user.uid}></Transaction>
+                <TransactionForm uid={user.uid}/>
             </div>
         </div>
     );

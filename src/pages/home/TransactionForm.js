@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import useFirestore from "../../hooks/useFirestore"
 
-const Transaction = ({ uid }) => {
+const TransactionForm = ({ uid }) => {
     const [name, setName] = useState('')
     const [amount, setAmount] = useState('')
     const { addDocument, delDocument, response } = useFirestore('transactions')
@@ -49,4 +49,4 @@ const Transaction = ({ uid }) => {
     )
 }
 
-export default Transaction;
+export default TransactionForm;
