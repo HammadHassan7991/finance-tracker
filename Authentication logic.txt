@@ -1,0 +1,56 @@
+First create firbase setup andn include extract database(projectFirestore) and auth(projetAuth) variables from firbase.
+
+Signup Hook:
+Create signup custom hook, which takes user data as parameters.
+Generate Firebase auth user data based on paramters(email, id ...).
+Includes clean up function in it.
+
+Use Signup Hook in signup page:
+import signup hook in signup page and page input field data to it as argument.
+
+Create Auth Context:
+Add LOGIN(return user) LOGOUT(return user null) and AUTH_IS_READY(return user) dispatch state.
+export state as well dispatch so state can b change from file where this context is used.
+
+Create Auth Hook to use Auth context:
+this return auth context which is basically state and dispatch
+
+Use Auth context inside sigup to update dispatch state:
+update disptach state to LOGIN and return user
+
+Create logout Hook
+this will signout user and update disptach state to LOGOUT 
+
+Use logout Hook in navbar for logout button:
+
+Add clean up function in logout signup hook:
+just to avoid error on sudden page change during async call
+
+Create login Hook:
+signin using firebase sign in function and also update dispatch state to LOGIN so it return user state with data
+
+Conditionally showing navabr link:
+import user from auth context usign authCotext hook and apply condtionally login to nav base on user data.
+
+
+add authchange state in auth context:
+so that user doenst get null at initial page load;
+
+authIsReady wait:
+wait for authIsReady to be true then render all pages
+
+route Guards:
+add user condition in routes page so user cant be able to go to home when logout.
+if user not login then redirect him to login page instead of home page.
+
+
+
+
+
+
+
+
+
+
+
+
